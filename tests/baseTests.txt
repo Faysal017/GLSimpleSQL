@@ -1,0 +1,29 @@
+/* Tests de validation pour l'ensemble des commandes supportées */
+
+-- Test1 : Creation et insertion
+
+CREATE TABLE Etudiant (
+    id INT,
+    nom VARCHAR(50),
+    age INT
+);
+
+INSERT INTO Etudiant VALUES (1, 'Diallo', 20);
+INSERT INTO Etudiant (id, nom) VALUES (2, 'Sow');
+
+--Test 2 : Sélections variées
+
+SELECT * FROM Etudiant;
+SELECT nom FROM Etudiant;
+SELECT nom, age FROM Etudiant WHERE age > 18;
+SELECT * FROM Etudiant WHERE id = 1 AND age < 25;
+
+--Test 3 : Modifications
+
+UPDATE Etudiant SET age = 21 WHERE id = 1;
+UPDATE Etudiant SET nom = 'Ba', age = 22 WHERE id = 2;
+
+--Test 4 : Suppressions
+
+DELETE FROM Etudiant WHERE age < 18;
+DROP TABLE Etudiant;

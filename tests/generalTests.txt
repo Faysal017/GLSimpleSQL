@@ -1,0 +1,63 @@
+/* Ensemble de tous les tests possibles visant à vérifier le comportement de l'ensemble des commandes prises en charge. */
+
+-- CREATE TABLE TESTS:
+
+CREATE TABLE person (
+    name VARCHAR(50),
+    prename VARCHAR(50),
+    age INT
+);  /* valid create table */
+
+CREATE TABLE person (id INT); /* existe table */
+
+-- INSERT INTO TESTS:
+
+INSERT INTO etudiant VALUES ('elyousfi', 'faysal'); /* inexiste table */
+INSERT INTO person VALUES ('elyousfi', 'faysal', 20, 'M'); /*  */
+INSERT INTO person (name, prename) VALUES ('elyousfi', 'faysal', 20);
+INSERT INTO person (name, prename, sexe) VALUES ('elyousfi', 'faysal', 'M');
+INSERT INTO person (name, prename) VALUES ('elyousfi', 20);
+INSERT INTO person VALUES ('elyousfi', 'faysal', 20);
+INSERT INTO person VALUES ('elyousfi', 'faysal');
+INSERT INTO person (name, age) VALUES ('elyousfi', 20);
+
+-- SELECT TESTS:
+
+SELECT * FROM etudiant;
+SELECT sexe FROM person;
+SELECT age FROM person WHERE sexe = 'M';
+SELECT name FROM person WHERE age = 'M';
+SELECT * FROM person;
+SELECT name FROM person;
+SELECT * FROM person WHERE name = 'elyousfi' AND age > 20;
+SELECT name FROM person WHERE age > 20 OR prename = 'faysal';
+
+-- UPDATE TESTS:
+
+UPDATE etudiant SET name = 'elyousfi';
+UPDATE person SET sexe = 'M';
+UPDATE person SET age = 20 WHERE sexe = 'M';
+UPDATE person SET name = 20 WHERE age = 20;
+UPDATE person SET name = 'elyousfi' WHERE age = 'M';
+UPDATE person SET prename = 'faysal';
+UPDATE person SET prename = 'faysal' WHERE age = 20;
+
+-- DELETE TESTS:
+
+DELETE FROM etudiant;
+DELETE FROM person WHERE age = 'faysal';
+DELETE FROM person;
+DELETE FROM person WHERE age = 20;
+
+--DROP TABLE TESTS:
+
+DROP TABLE etudiant;
+DROP TABLE person;
+
+--SYNTAX ERROR TESTS:
+
+SELECT *, nom FROM person;
+
+--LEXICAL ERROR TESTS:
+
+SELECT name FROM person WHERE age > 20 OR prename =! 'faysal';

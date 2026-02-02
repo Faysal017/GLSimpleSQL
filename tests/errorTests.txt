@@ -1,0 +1,23 @@
+/* Tests détection d'erreurs */
+
+--Erreur : table inexistante
+
+SELECT * FROM Produit;
+
+--Erreur : champ inexistant
+
+SELECT prix FROM Etudiant;
+
+--Erreur : nombre de valeurs incorrect
+
+INSERT INTO Etudiant VALUES (3, 'Kan');
+
+--Erreur : table deja existante
+
+CREATE TABLE Etudiant (id INT, age INT);
+CREATE TABLE Etudiant (num INT);
+
+--Erreur : syntaxe invalide
+
+SELECT FROM Etudiant;
+SELECT * Etudiant;
